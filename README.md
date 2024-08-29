@@ -10,6 +10,8 @@ The project also includes a `Calculator` class that allows chaining of these ope
 
 - **Extensibility**: The `Calculator` class should allow new operations to be added without requiring changes to its existing code.
   - New operations can be easily added by defining additional enum types in the `Operation` enum class, which can then be utilized during execution.
+  - Each operation is implemented as a `BiFunction<Number, Number, Number>`, enabling the application of the operation to two `Number` inputs and returning the result as a `Number`. 
+  - The use of `BigDecimal` ensures that all operations are performed with precision, suitable for financial calculations or other scenarios where numerical accuracy is crucial.
 
 - **IoC Compatibility**: Ensure the design is compatible with an Inversion of Control (IoC) environment, allowing for external management of dependencies to enable easy testing and swapping of implementations.
   - This project leverages the Spring Boot framework with Maven to manage all dependencies, promoting a modular and testable design.
