@@ -33,15 +33,15 @@ public enum Operation {
         this.operation = operation;
     }
 
-    public Number apply(Number num1, Number num2) {
-        return operation.apply(num1, num2);
-    }
-
     private static BigDecimal toBigDecimal(Number number) {
         if (number instanceof BigDecimal) {
             return (BigDecimal) number;
         } else {
             return new BigDecimal(number.toString());
         }
+    }
+
+    public Number apply(Number num1, Number num2) {
+        return operation.apply(num1, num2);
     }
 }

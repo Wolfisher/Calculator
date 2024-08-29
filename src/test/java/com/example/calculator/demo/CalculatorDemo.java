@@ -117,9 +117,8 @@ class CalculatorDemo {
     void testFailFastWithNullOperation() {
         Calculator calculator = new Calculator(new BigDecimal("10"));
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            calculator.andThenFailFast(null, new BigDecimal("5"));
-        });
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> calculator.andThenFailFast(null, new BigDecimal("5")));
 
         assertTrue(exception.getMessage().contains("Operation is not supported for value 5"));
     }
@@ -128,9 +127,8 @@ class CalculatorDemo {
     void testFailLastWithNullOperation() {
         Calculator calculator = new Calculator(new BigDecimal("10"));
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            calculator.andThenFailLast(null, new BigDecimal("5"));
-        });
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> calculator.andThenFailLast(null, new BigDecimal("5")));
 
         assertTrue(exception.getMessage().contains("Operation is not supported for value 5"));
     }

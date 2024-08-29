@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class OperationTest {
 
@@ -52,9 +53,8 @@ class OperationTest {
         result = (BigDecimal) Operation.DIVIDE.apply(new BigDecimal("10.5"), new BigDecimal("0.5"));
         assertEquals(new BigDecimal("21.0"), result);
 
-        ArithmeticException exception = assertThrows(ArithmeticException.class, () -> {
-            Operation.DIVIDE.apply(new BigDecimal("10"), BigDecimal.ZERO);
-        });
+        ArithmeticException exception = assertThrows(ArithmeticException.class,
+                () -> Operation.DIVIDE.apply(new BigDecimal("10"), BigDecimal.ZERO));
         assertEquals("Cannot divide by zero", exception.getMessage());
     }
 
@@ -69,9 +69,8 @@ class OperationTest {
         result = (BigDecimal) Operation.MODULUS.apply(new BigDecimal("10"), new BigDecimal("2"));
         assertEquals(new BigDecimal("0"), result);
 
-        ArithmeticException exception = assertThrows(ArithmeticException.class, () -> {
-            Operation.MODULUS.apply(new BigDecimal("10"), BigDecimal.ZERO);
-        });
+        ArithmeticException exception = assertThrows(ArithmeticException.class,
+                () -> Operation.MODULUS.apply(new BigDecimal("10"), BigDecimal.ZERO));
         assertEquals("Division by zero", exception.getMessage());
     }
 }
